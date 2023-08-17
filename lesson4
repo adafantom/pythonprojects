@@ -1,0 +1,40 @@
+message = input('Введите сообщение: ')
+
+print(f'Исходное слово: \033[32m\033[45m{message}\033[0m')
+
+cipher_one = message.replace('и', 'о').replace('к', 'м').replace('т', 'с').replace('н', 'х')
+print('1 шифр: ', cipher_one)
+
+cipher_two = message[::-1]
+print('2 шифр: ', cipher_two)
+
+cipher_three = message[::2] + message[1::2]
+print('3 шифр: ', cipher_three)
+
+cipher_four = message[-1] + message[1:len(message)-1] + message[0]
+print('4 шифр: ', cipher_four)
+
+cipher_five = message[-len(message)//2:] + message[:len(message)//2]
+print('5 шифр: ', cipher_five)
+
+decipher_one = cipher_one.replace('о', 'и').replace('м', 'к').replace('с', 'т').replace('х', 'н')
+print('Расшифровка 1: ', decipher_one)
+decipher_two = cipher_two[::-1]
+print('Расшифровка 2: ', decipher_two)
+
+decipher_three =''
+one_line = cipher_three[:len(cipher_three[::2])]
+two_line = cipher_three[-len(cipher_three[1::2]):]
+for i in range(len(cipher_three[::2])):
+    decipher_three += one_line[i]
+    if i < len(two_line):
+        decipher_three += two_line[i]
+print('Расшифровка 3: ', decipher_three)
+
+decipher_four = cipher_four[-1] + cipher_four[1:len(cipher_four)-1] + cipher_four[0]
+print('Расшифровка 4: ', decipher_four)
+
+
+decipher_five = cipher_five[-len(cipher_five)//2:] + cipher_five[:len(cipher_five)//2]
+print('Расшифровка 5: ', decipher_five)
+
