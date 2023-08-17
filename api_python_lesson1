@@ -1,0 +1,19 @@
+import requests
+
+name_city = "Череповец"
+url = 'https://wttr.in/{city}?m?M?q?T?n&lang=ru'.format(city=name_city)
+response = requests.get(url)
+response.raise_for_status()
+print(response.text)
+
+name_city = "Лондон"
+url = 'https://wttr.in/{city}?m?M?q?T?n&lang=ru'.format(city=name_city)
+response = requests.get(url)
+response.raise_for_status()
+print(response.text)
+
+name_city = "SVO"
+url = 'https://wttr.in/{city}?m?M?q?T?n&lang=ru'.format(city=name_city)
+response = requests.get(url)
+response.raise_for_status()
+print(response.text)
