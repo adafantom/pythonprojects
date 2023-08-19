@@ -1,0 +1,41 @@
+secret_word = input('Введите слово для игры: ')
+print('\033[2J')
+win = False
+all_letters = []
+true_letters = []
+points = [0, 0, 0]
+counter = 0
+ans_word = ()
+
+while(not win):
+    letter = input(f'\nИгрок {counter+1}, введите букву: ')
+    if letter in all_letters:
+        print('Вы уже вводили эту букву ранее')
+    else:
+        all_letters.append(letter)
+        if letter in secret_word:
+            true_letters.append(letter)
+            points[counter]+=1
+            print(f'Вы угадали букву! Ваши очки: {points[counter]}\n')
+        else:
+            print('Вы ошиблись, буквы нет в слове')
+        if counter == 2:
+            counter = 0
+        else:
+            counter +=1
+    win_count = 0
+    for i in range(len(secret_word)):
+        if secret_word[i] in true_letters:
+            print(secret_word[i], end="")
+            win_count+=1
+        else:
+            print("*", end="")
+
+    if win_count == len(secret_word):
+        win = True
+print(f'''
+Очки игроков: 
+1 игрок - {points[0]} очков
+2 игрок - {points[1]} очков
+3 игрок - {points[2]} очков
+''')
