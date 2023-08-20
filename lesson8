@@ -1,0 +1,27 @@
+from random import choice
+from string import printable
+
+all_characters = list(printable)
+status = False
+status_length = False
+len_password = 0
+while (len_password < 7) or (len_password > 20):
+    len_password = int(input('Какой длинны пароль вам необходим? Введите ваш ответ: '))
+    if len_password < 7:
+        print('Пароль слишком короткий, попробуйте еще раз')
+    elif len_password > 20:
+        print('Пароль слишком длинный, попробуйте еще раз')
+
+while not status:
+    password = ''.join([choice(all_characters) for i in range(len_password)])
+    password = password.replace(' ', choice(all_characters))
+    print(f'Ваш пароль: {password}')
+    user_ans = input('Нравится полученный пароль? Введите ваш ответ: ')
+    if (user_ans == 'да') or (user_ans == 'Да'):
+        print(f'Отлично! Ваш новый пароль: {password}')
+        status = True
+    elif (user_ans == 'нет') or (user_ans == 'Нет'):
+        print('Хорошо, сейчас попробуем заново')
+    else:
+        print('Я вас не понимаю...')
+        break
