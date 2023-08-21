@@ -3,7 +3,6 @@ from string import printable
 
 all_characters = list(printable)
 status = False
-status_length = False
 len_password = 0
 while (len_password < 7) or (len_password > 20):
     len_password = int(input('Какой длинны пароль вам необходим? Введите ваш ответ: '))
