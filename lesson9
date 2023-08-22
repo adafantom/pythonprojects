@@ -3,9 +3,9 @@ ALPHABET_EN = 'abcdefghijklmnopqrstuvwxyz'
 
 chipher = []
 result = ''
+lang = input('Выберите язык: RU/EN: ')
 message = input('Введите ваше сообщение: ').lower()
 step = int(input('Введите шаг сдвига: '))
-lang = input('Выберите язык: RU/EN: ')
 
 if lang == 'RU':
     for i in message:
