@@ -1,0 +1,31 @@
+ALPHABET_RU = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+ALPHABET_EN = 'abcdefghijklmnopqrstuvwxyz'
+
+chipher = []
+result = ''
+message = input('Введите ваше сообщение: ').lower()
+step = int(input('Введите шаг сдвига: '))
+lang = input('Выберите язык: RU/EN: ')
+
+if lang == 'RU':
+    for i in message:
+        chipher.append(ALPHABET_RU.find(i)+step)
+      
+    print('Шифр:', chipher)
+       
+    for i in chipher:
+        result += ALPHABET_RU[i-step]
+    
+    print('Ваше сообщение:', result)
+elif lang == 'EN':
+    for i in message:
+        chipher.append(ALPHABET_EN.find(i)+step)
+      
+    print('Cipher:', chipher)
+    
+    for i in chipher:
+        result += ALPHABET_EN[i-step]
+    
+    print('Your message:', result)
+else:
+    print('Я вас не понимаю...')
