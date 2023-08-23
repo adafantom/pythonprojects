@@ -1,0 +1,41 @@
+win_state = False 
+playing_field = list(range(1, 10))
+counter = 1
+player = ''
+all_win_coords = [
+    (1, 2, 3), 
+    (4, 5, 6), 
+    (7, 8, 9), 
+    (1, 5, 9), 
+    (7, 5, 3), 
+    (1, 4, 7), 
+    (2, 5, 8), 
+    (3, 6, 9)
+]
+
+while not win_state:
+    valid = False
+
+    player = 'O' if counter % 2 == 0 else 'X'
+    print(f'\nХод игрока {player}:')
+    
+    for i in range(3):
+        print(f'| {playing_field[3*i]} | {playing_field[3*i+1]} | {playing_field[3*i+2]} |')
+
+    while not valid:
+        position = int(input(f'Куда хотите поставить {player}? Ответ: '))
+        if playing_field[position-1] == position:
+            playing_field[position-1] = player
+            valid = True
+        else:
+            print('Клетка уже занята!')
+    
+    if counter > 4:  
+        for item in all_win_coords:
+            if (playing_field[item[0]-1] == playing_field[item[1]-1]) and (playing_field[item[1]-1] == playing_field[item[2]-1]):
+                print(f'Игра окончена! Победитель - Игрок {player}')
+                win_state = True
+    counter += 1
+    if (counter > 9) and not win_state: 
+        print('Ничья, игра окончена')
+        win_state = True
