@@ -31,8 +31,8 @@ while not win_state:
             print('Клетка уже занята!')
     
     if counter > 4:  
-        for item in all_win_coords:
-            if (playing_field[item[0]-1] == playing_field[item[1]-1]) and (playing_field[item[1]-1] == playing_field[item[2]-1]):
+        for position_one, position_two, position_three in all_win_coords:
+            if (playing_field[position_one] == playing_field[position_two]) and (playing_field[position_two] == playing_field[position_three]):
                 print(f'Игра окончена! Победитель - Игрок {player}')
                 win_state = True
     counter += 1
