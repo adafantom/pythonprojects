@@ -1,6 +1,6 @@
 win_state = False 
 playing_field = list(range(1, 10))
-counter = 0
+counter = 1
 player = ''
 all_win_coords = [
     (0, 1, 2), 
@@ -36,6 +36,6 @@ while not win_state:
                 print(f'Игра окончена! Победитель - Игрок {player}')
                 win_state = True
 
-    if (counter > 8) and not win_state: 
+    if (counter > 9) and not win_state: 
         print('Ничья, игра окончена')
         win_state = True
