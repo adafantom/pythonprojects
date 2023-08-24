@@ -1,16 +1,16 @@
 win_state = False 
 playing_field = list(range(1, 10))
-counter = 1
+counter = 0
 player = ''
 all_win_coords = [
-    (1, 2, 3), 
-    (4, 5, 6), 
-    (7, 8, 9), 
-    (1, 5, 9), 
-    (7, 5, 3), 
+    (0, 1, 2), 
+    (3, 4, 5), 
+    (6, 7, 8), 
+    (0, 4, 8), 
+    (6, 4, 2), 
+    (0, 3, 6), 
     (1, 4, 7), 
-    (2, 5, 8), 
-    (3, 6, 9)
+    (2, 5, 8)
 ]
 
 while not win_state:
@@ -29,13 +29,13 @@ while not win_state:
             valid = True
         else:
             print('Клетка уже занята!')
-    
+    counter += 1
     if counter > 4:  
         for position_one, position_two, position_three in all_win_coords:
             if (playing_field[position_one] == playing_field[position_two]) and (playing_field[position_two] == playing_field[position_three]):
                 print(f'Игра окончена! Победитель - Игрок {player}')
                 win_state = True
-    counter += 1
-    if (counter > 9) and not win_state: 
+
+    if (counter > 8) and not win_state: 
         print('Ничья, игра окончена')
         win_state = True
